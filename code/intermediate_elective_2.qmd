@@ -219,7 +219,7 @@ plot_data <- ab_do |>
   filter(!is.na(med_do), !is.na(log_ave_lit))
 
 med_do_val  <- median(plot_data$med_do,      na.rm = TRUE)
-med_ab_val  <- median(plot_data$log_ave_lit, na.rm = TRUE)
+med_ab_val  <- 3
 
 
 # Start recording ---------------------------------------------------------
@@ -384,6 +384,9 @@ ggplot(
 
 
 ```{r}
+#| fig-width: 15
+#| fig-height: 6
+
 ggplot(
   data = plot_data
 ) +
@@ -391,12 +394,12 @@ ggplot(
     "rect",
     xmin = med_do_val, xmax = Inf,
     ymin = med_ab_val, ymax = Inf, alpha = 0.5,
-    fill = "grey"
+    fill = "#74C69D"
   ) +
   annotate(
     "text",
     x = 15.5, y = 5.8, label = "High DO, High abundance",
-    colour = "grey30", family = body_font, fontface = "bold.italic",
+    colour = "#2D6A4F", family = body_font, fontface = "bold.italic",
     hjust = 1.05
   ) +
   annotate(
@@ -415,12 +418,12 @@ ggplot(
     "rect",
     xmin = -Inf, xmax = med_do_val,
     ymin = med_ab_val, ymax = Inf, alpha = 0.5,
-    fill = highlight_col
+    fill = "#D4A373"
   ) +
   annotate(
     "text",
     x = 0.3, y = 5.8, label = "Low DO,\nHigh\nabundance",
-    colour = "#3C598E", family = body_font, fontface = "bold.italic",
+    colour = "#A0522D", family = body_font, fontface = "bold.italic",
     hjust = 0
   ) +
   annotate(
@@ -469,7 +472,7 @@ ggplot(
   theme_minimal(base_size = 10, base_family = body_font) +
   theme(
     legend.position = "right",
-    plot.margin = margin(10, 20, 10, 50),  # <-- increased left margin to make room for y title
+    plot.margin = margin(10, 20, 10, 50),
     plot.title.position = "plot",
     plot.caption.position = "plot",
     plot.background = element_rect(fill = bg_col, colour = bg_col),
@@ -487,7 +490,7 @@ ggplot(
       colour = text_col,
       hjust = 0,
       halign = 0,
-      margin = margin(b = 10, t = 5),  # <-- reduced from 35 to 10
+      margin = margin(b = 10, t = 5),
       family = body_font
     ),
     plot.caption = element_textbox_simple(
@@ -505,11 +508,11 @@ ggplot(
     panel.grid.minor = element_blank(),
     axis.title.x = element_text(hjust = 1, margin = margin(t = 5)),
     axis.title.y.left = element_text(
-      angle = 90,         # <-- changed from 0 to 90 (normal upright rotation)
-      vjust = 0.5,        # <-- changed from 1.07
+      angle = 90,
+      vjust = 0.5,
       family = body_font,
       size = rel(0.9),
-      margin = margin(r = 5)  # <-- changed from -215 to 5
+      margin = margin(r = 5)
     )
   )
 ```
