@@ -146,6 +146,15 @@ copepods_df <- aq_ins_clean |>
   filter(taxon == "copepod") |> 
   # log + 1 transform mean abundance per liter
   mutate(log_ave_lit = log(ave_lit + 1)) 
+
+# creating new clean object from aquatic inverts
+ab_do <- aq_ins_clean |> 
+  # log transform mean abundance per liter
+  mutate(log_ave_lit = log(ave_lit+1),
+         # convert taxon to title
+         taxon = to_any_case(taxon, case = "title"),
+         # order taxon levels by abudance
+         taxon = fct_reorder(taxon, ave_lit, .fun="max"))
 ```
 
 # 1. Explain Inspiration
@@ -155,8 +164,8 @@ snowman predict the summer season" by Nicola Rennie.
 temperature in relation to the different taxon availability and the 
 graph allows me to analyze and communicate my findings the msot efficiently.
 - The variables that I will choose in my dataset to show my visualization 
-will be temperature, taxon, and average abundance. In terms of visual 
-components, the temperature will be on the x axis. Taxon will have different
+will be dissolved, taxon, and average abundance. In terms of visual 
+components, the dissolved will be on the x axis. Taxon will have different
 colors to differentiate. And the y axis will have the average abundance.
 
 # 2. Plan figure
@@ -189,20 +198,6 @@ text_col <- "#151C28"
 highlight_col <- "cornflowerblue"
 
 
-# Data wrangling ----------------------------------------------------------
-
-plot_data <- sechselaeuten |>
-  drop_na(duration, tre200m0)
-
-plot_data <- plot_data |>
-  mutate(
-    correct =
-      duration > median(plot_data$duration) & tre200m0 < median(plot_data$tre200m0) | duration < median(plot_data$duration) & tre200m0 > median(plot_data$tre200m0)
-  )
-
-perc <- round(100 * sum(plot_data$correct) / nrow(plot_data))
-
-
 # Start recording ---------------------------------------------------------
 
 gg_record(
@@ -224,7 +219,7 @@ social <- nrBrand::social_caption(
   font_family = body_font
 )
 icon <- "<span style='font-size:8pt;font-family:\"FA\";color:#3C598E;'>&#xf111;</span> "
-title <- "Can an exploding snowman predict the summer season?"
+title <- "Can temperature predict average abundance?"
 st <- glue("The Böögg is a snowman effigy made of cotton wool and stuffed with fireworks, created every year for Zurich's *Sechselaeuten* spring festival. The saying goes that the quicker the Böögg's head explodes, the finer the summer will be. The Böögg was {icon}<span style='color: #3C598E;'>**correct**</span>* only {perc}% of the time, so maybe just flip a coin?")
 cap <- paste0(
   "**Note**: *Correct is defined as above or below median burning duration predicting below or above median temperatures.<br>**Data**: data.geo.admin.ch | sechselaeuten.ch<br>**Graphic**: ", social
