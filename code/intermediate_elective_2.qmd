@@ -171,6 +171,13 @@ components, the dissolved will be on the x axis. Taxon will have different
 colors to differentiate. And the y axis will have the average abundance.
 
 # 2. Plan figure
+```{r}
+#| fig-cap: "Draft photo"
+
+
+knitr::include_graphics(here("data", "20260515_174533.jpg"))
+```
+
 
 # 3. Code figure
 ```{r}
@@ -391,3 +398,8 @@ the graph not creating 4 regions.
 a higher emphasis on the visuals. Additionally, I split one graph into 4
 sections, something that I hadn't done in other electives. I also was able to
 add quotes as well to cite data or to add context to the title.
+
+```{r}
+list.files("data")
+```
+
