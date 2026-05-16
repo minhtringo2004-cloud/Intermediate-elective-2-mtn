@@ -377,3 +377,17 @@ ggplot(
   )
 ```
 
+# 4. Describe Process
+- The process to use someone else's code to create a visualization make me
+creative in other aspects. While I had an image or preconcieved idea of what 
+my graph would look like, I had to manipulate the code in my own way to be
+able to get the graphs to work.
+- Challenges I encountered in this specific visualization adaptation would be
+that they didn't clarify the font packages were previously downloaded so I
+had to improvise. Additionally, there were some aspects of the graph that 
+wouldn't work with my own as the median is 0 for some values, leading to 
+the graph not creating 4 regions. 
+- This visualization differs from other assignments or electives since there is 
+a higher emphasis on the visuals. Additionally, I split one graph into 4
+sections, something that I hadn't done in other electives. I also was able to
+add quotes as well to cite data or to add context to the title.
