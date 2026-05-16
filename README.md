@@ -37,6 +37,4 @@ library(ggfx)
 
 ## Rendered output
 
-The rendered key for the code in this repository is here (https://github.com/minhtringo2004-cloud/week-05_spring-2026_aquatic-inverts/blob/main/code/Individual-Assignment-5.pdf).
-
-The rendered document from class is here (https://github.com/minhtringo2004-cloud/week-05_spring-2026_aquatic-inverts/blob/main/code/week-05_in-class-KEY.pdf).
+The rendered document for this repository is here (https://github.com/minhtringo2004-cloud/Intermediate-elective-2-mtn/blob/main/code/intermediate_elective_2.pdf).
