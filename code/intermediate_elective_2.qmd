@@ -223,18 +223,6 @@ med_do_val  <- median(plot_data$med_do,      na.rm = TRUE)
 med_ab_val  <- 3
 
 
-# Start recording ---------------------------------------------------------
-
-gg_record(
-  dir = file.path("2025", "2025-12-02", "recording"),
-  device = "png",
-  width = 7,
-  height = 6,
-  units = "in",
-  dpi = 300
-)
-
-
 # Define text -------------------------------------------------------------
 
 social <- "Your Name"
